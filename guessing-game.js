@@ -5,9 +5,13 @@
         let currentGuess = '';
     
         while (attempts < 3) {
-            currentGuess = parseInt(prompt(message), 10);
-            console.log('currentGuess', currentGuess);
             attempts += 1;
+            
+            currentGuess = parseInt(prompt(message), 10);
+            // leave if the user hits 'Cancel'
+            if (!currentGuess) {
+                return 'Leaving so soon?';
+            }
     
             if (currentGuess === number) {
                 return `Success! The number was ${number}! Attempts: ${attempts}`;
